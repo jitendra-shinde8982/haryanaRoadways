@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background-image: url(bg-color.png);
+        background-size: 2000px 650px;
+        background-repeat: no-repeat;
+        background-position: top;
+        max-width: 95%;
+        margin: 0 auto;
+    }
+
+    /* Main nav container */
+    .hr-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .hr-nav__logo {
+        width: 80px;
+        height: 110px;
+        object-fit: contain;
+    }
+
+
+    .hr-nav__text {
+        width: 80%;
+    }
+
+
+    .hr-nav__title {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+
+    .hr-nav__subtitle {
+        margin: 8px 0;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+
+    .boxContainMain {
+        border: 1px solid #10254D;
+        margin: 35px 0;
+        padding: 10px 70px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .MapImage {
+        width: 300px;
+        height: auto;
+    }
+
+    .titleWeb {
+        margin: 0;
+        max-width: 520px;
+        font-size: 5.5rem;
+        color: #fff;
+        text-shadow: #959595 0px 0 7px;
+        line-height: 100px;
+    }
+
+    .toggle-container {
+        max-width: 450px;
+        background: none;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 15px 0;
+    }
+
+
+    .tab-header {
+        display: flex;
+    }
+
+    .tab {
+        width: 120px;
+        padding: 12px;
+        text-align: center;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 14px;
+        color: #f15a29;
+           background: #E7EDFD;
+    }
+
+    .tab.active {
+        background: #0f172a;
+        color: #fff;
+        border-radius: 0 6px 0 0;
+    }
+
+
+    .tab-body {
+        padding: 20px;
+        background: #E7EDFD;
+        border-radius: 0 0 6px 0;
+        box-shadow: rgb(225 173 245 / 44%) 1px 20px 4px 8px;
+    }
+
+    .tab-content {
+        display: none;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+
+    .select-wrapper {
+        position: relative;
+        width: 70%;
+        margin: 5px;
+    }
+
+    .select-wrapper span {
+        position: absolute;
+        top: 10px;
+        left: 8px;
+    }
+
+    .select-wrapper .icon {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        font-size: 16px;
+    }
+
+    .custom-select {
+        width: 100%;
+        padding: 10px 10px 10px 30px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        appearance: none;
+        background-color: #f7f9fc;
+        outline: none;
+
+        background-color: #fff;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='14' viewBox='0 0 20 11' fill='none'><path d='M10.1238 8.83359L18.1722 0.795987C18.2503 0.717445 18.3434 0.655381 18.446 0.613472C18.5485 0.571563 18.6585 0.550661 18.7692 0.552004C18.88 0.553346 18.9894 0.576907 19.0909 0.62129C19.1924 0.665672 19.284 0.729974 19.3602 0.810387C19.5163 0.974865 19.6022 1.19374 19.5995 1.42051C19.5968 1.64728 19.5058 1.86406 19.3458 2.02479L10.7022 10.6564C10.6246 10.7345 10.5323 10.7963 10.4306 10.8383C10.3288 10.8803 10.2197 10.9015 10.1097 10.9009C9.99963 10.9002 9.89082 10.8776 9.7896 10.8344C9.68838 10.7912 9.5968 10.7282 9.5202 10.6492L0.646196 1.56399C0.489143 1.40134 0.401367 1.18408 0.401367 0.957987C0.401367 0.731894 0.489143 0.51463 0.646196 0.351987C0.723371 0.272517 0.815708 0.209341 0.917738 0.1662C1.01977 0.123059 1.12942 0.10083 1.2402 0.10083C1.35097 0.10083 1.46062 0.123059 1.56265 0.1662C1.66468 0.209341 1.75702 0.272517 1.8342 0.351987L10.1238 8.83359Z' fill='%23667085'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 12px 14px;
+    }
+
+    .track-btn {
+        background: #f15a29;
+        border: none;
+        color: #fff;
+        padding: 10px 24px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background .3s;
+        align-self: center;
+    }
+
+    .track-btn:hover {
+        background: #d94b1d;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .bus-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+
+    .bus-table thead tr {
+        background: #F15A29;
+        color: #fff;
+    }
+
+    .bus-table thead th {
+        text-align: center;
+        padding: 8px 15px;
+        font-size: 14px;
+        border-left: 1.5px solid #fff;
+        margin: 5px;
+    }
+
+    .bus-table thead th:first-child {
+        border-left: none;
+    }
+
+    .bus-table td {
+        text-align: left;
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .bus-table tbody tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+
+    .bus-table tbody tr:hover {
+        background: #f1f1f1;
+    }
+
+    .status {
+        font-weight: bold;
+    }
+
+    @media screen and (max-width: 620px) {
+        body {
+            background-size: 550px;
+            max-width: 100%;
+        }
+
+        .hr-nav__logo {
+            width: 32px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .hr-nav__title {
+            font-size: 12px;
+        }
+
+        .hr-nav__subtitle {
+            font-size: 10px;
+        }
+
+
+        .titleWeb {
+            max-width: 150px;
+            font-size: 1.2rem;
+            color: #fff;
+            line-height: normal;
+        }
+
+        .boxContainMain {
+            padding: 10px 10px;
+            margin: 10px;
+        }
+
+        .MapImage {
+            width: 80px;
+            height: auto;
+        }
+
+        .tab-body {
+            padding: 5px;
+        }
+
+        .tab {
+            padding: 5px;
+        }
+
+        .table-container {
+            margin: 10px;
+        }
+
+        .bus-table {
+            width: 1200px;
+        }
+
+        .select-wrapper {
+            margin: 0;
+            width: 60%;
+        }
+    }
+</style>
+
+<body>
+    <nav class="hr-nav">
+        <img src="IndianSymbolLogo.png" alt="Indian Symbol" class="hr-nav__logo">
+
+        <div class="hr-nav__text">
+            <h4 class="hr-nav__title">राज्य परिवहन विभाग (हरियाणा रोडवेज)</h4>
+            <p class="hr-nav__subtitle">Department of State Transport (Haryana Roadways)</p>
+        </div>
+
+        <img src="haryanaRoadways.png" alt="Haryana Roadways" class="hr-nav__logo">
+    </nav>
+
+    <div class="boxContainMain">
+        <div>
+            <div>
+                <h1 class="titleWeb">Haryana Roadways</h1>
+            </div>
+            <div class="toggle-container">
+                <div class="tab-header">
+                    <div class="tab active" id="stationTab">STATION - WISE</div>
+                    <div class="tab" style="border-radius: 0 6px 0 0;" id="routeTab">ROUTE WISE</div>
+                </div>
+
+                <div class="tab-body">
+                    <!-- Station wise -->
+                    <div class="tab-content active" id="stationContent">
+                        <div style="display: flex;gap: 5px;">
+                            <div class="select-wrapper">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 30 30"
+                                        fill="none">
+                                        <path
+                                            d="M15.349 26.25C19.5781 21.75 23.8073 17.7205 23.8073 12.75C23.8073 7.77944 20.0204 3.75 15.349 3.75C10.6776 3.75 6.89062 7.77944 6.89062 12.75C6.89062 17.7205 11.1198 21.75 15.349 26.25Z"
+                                            stroke="black" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M15.3542 15C16.6889 15 17.7708 13.8807 17.7708 12.5C17.7708 11.1193 16.6889 10 15.3542 10C14.0194 10 12.9375 11.1193 12.9375 12.5C12.9375 13.8807 14.0194 15 15.3542 15Z"
+                                            stroke="black" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <select class="custom-select">
+                                    <option>Select</option>
+                                    <option>Station 1</option>
+                                    <option>Station 2</option>
+                                </select>
+                            </div>
+                            <button class="track-btn">TRACK</button>
+                        </div>
+                    </div>
+
+                    <!-- Route wise -->
+                    <div class="tab-content" id="routeContent">
+                        <div class="select-wrapper">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 30 30"
+                                    fill="none">
+                                    <path
+                                        d="M15.349 26.25C19.5781 21.75 23.8073 17.7205 23.8073 12.75C23.8073 7.77944 20.0204 3.75 15.349 3.75C10.6776 3.75 6.89062 7.77944 6.89062 12.75C6.89062 17.7205 11.1198 21.75 15.349 26.25Z"
+                                        stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M15.3542 15C16.6889 15 17.7708 13.8807 17.7708 12.5C17.7708 11.1193 16.6889 10 15.3542 10C14.0194 10 12.9375 11.1193 12.9375 12.5C12.9375 13.8807 14.0194 15 15.3542 15Z"
+                                        stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            <select class="custom-select">
+                                <option>From Station</option>
+                                <option>Station 1</option>
+                                <option>Station 2</option>
+                            </select>
+                        </div>
+                        <div style="display: flex;gap: 5px;margin-top: 5px;">
+                            <div class="select-wrapper">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 30 30"
+                                        fill="none">
+                                        <path
+                                            d="M15.349 26.25C19.5781 21.75 23.8073 17.7205 23.8073 12.75C23.8073 7.77944 20.0204 3.75 15.349 3.75C10.6776 3.75 6.89062 7.77944 6.89062 12.75C6.89062 17.7205 11.1198 21.75 15.349 26.25Z"
+                                            stroke="black" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M15.3542 15C16.6889 15 17.7708 13.8807 17.7708 12.5C17.7708 11.1193 16.6889 10 15.3542 10C14.0194 10 12.9375 11.1193 12.9375 12.5C12.9375 13.8807 14.0194 15 15.3542 15Z"
+                                            stroke="black" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <select class="custom-select">
+                                    <option>To Station</option>
+                                    <option>Station 1</option>
+                                    <option>Station 2</option>
+                                </select>
+                            </div>
+                            <button class="track-btn">TRACK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img class="MapImage" src="HaryanaMap.png" alt="">
+        </div>
+
+
+    </div>
+    <div class="table-container">
+        <table class="bus-table">
+            <thead>
+                <tr>
+                    <th>Bus No.</th>
+                    <th>Route</th>
+                    <th>STA</th>
+                    <th>ETA</th>
+                    <th>Update Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+                <tr>
+                    <td>HR69GV5517</td>
+                    <td>Delhi – Chandigarh</td>
+                    <td>12 : 05</td>
+                    <td>11 : 53 (13 min)</td>
+                    <td>26-09-2025 11:43 AM</td>
+                    <td>Early</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <script>
+
+        const stationTab = document.getElementById('stationTab');
+        const routeTab = document.getElementById('routeTab');
+        const stationContent = document.getElementById('stationContent');
+        const routeContent = document.getElementById('routeContent');
+
+        stationTab.addEventListener('click', () => {
+            stationTab.classList.add('active');
+            routeTab.classList.remove('active');
+            stationContent.classList.add('active');
+            routeContent.classList.remove('active');
+        });
+
+        routeTab.addEventListener('click', () => {
+            routeTab.classList.add('active');
+            stationTab.classList.remove('active');
+            routeContent.classList.add('active');
+            stationContent.classList.remove('active');
+        });
+
+
+    </script>
+
+</body>
+
+</html>

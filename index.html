@@ -85,7 +85,7 @@
     }
 
     .toggle-container {
-        max-width: 450px;
+        max-width: 550px;
         background: none;
         border-radius: 8px;
         overflow: hidden;
@@ -118,7 +118,7 @@
     .tab-body {
         padding: 20px;
         background: #E7EDFD;
-        border-radius: 0 0 6px 0;
+        border-radius: 0 6px 6px 0;
         box-shadow: rgb(225 173 245 / 44%) 1px 20px 4px 8px;
     }
 
@@ -272,13 +272,36 @@
         .boxContainMain {
             padding: 10px 10px;
             margin: 10px;
+            position: relative;
+        }
+
+        .toggle-container {
+            background: none;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 15px 0;
+            z-index: 2;
+            position: relative;
+        }
+
+        .respImgPostion {
+            position: absolute;
+            z-index: 1;
+            width: 145px;
+            height: auto;
+            top: -15px;
+            left: 35%;
+            z-index: 1;
         }
 
         .MapImage {
-            width: 80px;
+            width: 100%;
             height: auto;
         }
 
+        .widthResp100{
+            width: 100% !important;
+        }
         .tab-body {
             padding: 5px;
         }
@@ -295,10 +318,6 @@
             width: 1200px;
         }
 
-        .select-wrapper {
-            margin: 0;
-            width: 60%;
-        }
     }
 </style>
 
@@ -315,7 +334,7 @@
     </nav>
 
     <div class="boxContainMain">
-        <div>
+        <div class="widthResp100">
             <div>
                 <h1 class="titleWeb">Haryana Roadways</h1>
             </div>
@@ -402,7 +421,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="respImgPostion">
             <img class="MapImage" src="HaryanaMap.png" alt="">
         </div>
 
